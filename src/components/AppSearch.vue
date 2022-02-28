@@ -26,7 +26,7 @@
 
 <script setup>
 import Background from "@/components/AppBackground.vue"
-import { ref, computed } from "vue"
+import { ref } from "vue"
 
 const isDimming = ref(false)
 </script>
@@ -76,11 +76,11 @@ const isDimming = ref(false)
     border-radius: 10px
     border: none
     outline: none
-    background-color: $accent-color
-    background-image: url("../static/icons/search.svg")
-    background-size: 50%
-    background-position: center
-    background-repeat: no-repeat
+    background: no-repeat center/50% url("../static/icons/search-accent-color.svg")
     cursor: pointer
-    transition: background-color .5s ease-in-out
+    transition: all .5s linear
+
+    &:is(&_hover:hover, &_focus:focus)
+      background-color: $accent-color
+      background-image: url("../static/icons/search.svg")
 </style>
