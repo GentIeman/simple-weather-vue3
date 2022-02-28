@@ -6,5 +6,6 @@ import Search from "@/components/AppSearch.vue"
   <Search />
 </template>
 
-<style lang="stylus">
+<style lang="sass">
+@import "./src/assets/styles/base.sass"
 </style>
