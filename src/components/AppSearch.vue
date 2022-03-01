@@ -33,9 +33,10 @@ const isDimming = ref(false)
 
 <style scoped lang="sass">
 .search-container-wrap
-  display: grid
-  place-items: center
+  display: flex
   width: 100%
+  justify-content: center
+  align-items: center
   min-height: 100vh
   transition: background-color .5s ease
 
@@ -44,7 +45,7 @@ const isDimming = ref(false)
 
 .search-container
   display: grid
-  grid-template-columns: auto 60px
+  grid-template-columns: minmax(100px, auto) 60px
   width: 700px
   height: 60px
   background-color: #fff
@@ -52,7 +53,7 @@ const isDimming = ref(false)
   box-shadow: 0 3px 6px 0.5px rgba(0, 0, 0, 18%)
   overflow: hidden
   outline: none
-  box-sizing: content-box
+  margin: 0 20px
   transform: translateY(-40px)
   opacity: 0
   animation: slide-down .5s linear forwards
