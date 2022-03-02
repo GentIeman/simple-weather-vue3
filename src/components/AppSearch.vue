@@ -11,7 +11,7 @@
         class="search-container__search"
         @click="isDimming = true"
         @focus="isDimming = true"
-        placeholder="Enter city...."
+        placeholder="Location"
         v-model="location"
         @keyup.enter="sendLocation"
       />
