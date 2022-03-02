@@ -12,13 +12,14 @@
         @click="isDimming = true"
         @focus="isDimming = true"
         placeholder="Enter city...."
+        v-model="location"
+        @keyup.enter="sendLocation"
       />
       <a
-        href="#"
         class="search-container__btn search-container__btn_hover search-container__btn_focus"
         aria-label="Search"
-      >
-      </a>
+        @click="sendLocation"
+      ></a>
     </div>
   </div>
   <Background />
@@ -26,9 +27,21 @@
 
 <script setup>
 import Background from "@/components/AppBackground.vue"
-import { ref } from "vue"
+import { computed, ref } from "vue"
+import { fetchWeather } from "@/modules/fetchWeather.js"
 
+const location = ref("")
 const isDimming = ref(false)
+
+const locationNormalize = computed(() => {
+  return location.value.trim().toLowerCase()
+})
+
+const sendLocation = () => {
+  if (locationNormalize.value.length > 1 || !locationNormalize.value < 0) {
+    fetchWeather(locationNormalize.value)
+  }
+}
 </script>
 
 <style scoped lang="sass">
