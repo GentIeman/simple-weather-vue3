@@ -38,7 +38,7 @@ const locationNormalize = computed(() => {
 })
 
 const sendLocation = () => {
-  if (locationNormalize.value.length > 1 || !locationNormalize.value < 0) {
+  if (locationNormalize.value.length > 1) {
     fetchWeather(locationNormalize.value)
   }
 }
