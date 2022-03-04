@@ -16,7 +16,7 @@
         @keyup.enter="sendLocation"
       />
       <a
-        class="search-container__btn search-container__btn_hover search-container__btn_focus"
+        class="search-container__btn search-container__btn_hover search-container__btn_focus search-container__btn_active"
         aria-label="Search"
         @click="sendLocation"
       ></a>
@@ -47,10 +47,11 @@ const sendLocation = () => {
 <style scoped lang="sass">
 .search-container-wrap
   display: flex
-  width: 100%
   justify-content: center
   align-items: center
-  min-height: 100vh
+  position: absolute
+  width: 100%
+  min-height: 100%
   transition: background-color .5s ease
 
   &_dimming
@@ -94,7 +95,7 @@ const sendLocation = () => {
     cursor: pointer
     transition: all .5s linear
 
-    &:is(&_hover:hover, &_focus:focus)
+    &:is(&_hover:hover, &_focus:focus, &_active:active)
       background-color: $accent-color
       background-image: url("../static/icons/search.svg")
 </style>
