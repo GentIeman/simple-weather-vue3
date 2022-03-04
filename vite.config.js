@@ -16,5 +16,8 @@ export default defineConfig({
         additionalData: `@import './src/assets/styles/base.sass'`
       }
     }
+  },
+  server: {
+    host: true
   }
 })
