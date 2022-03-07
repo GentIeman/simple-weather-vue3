@@ -1,25 +1,30 @@
 <template>
   <div
     class="search-container-wrap"
-    :class="{ 'search-container-wrap_dimming': isDimming == true }"
+    :class="{ 'search-container-wrap_dimming': isDimming === true }"
     @click.self="isDimming = false"
   >
-    <div class="search-container" @mouseover="isDimming = true" @mouseleave="isDimming = false">
+    <div
+      class="search-container"
+      :class="{ 'search-container_swing': error !== '' }"
+      @mouseover="isDimming = true"
+      @mouseleave="isDimming = false"
+    >
       <input
+        v-model="location"
         tabindex="0"
         type="search"
         class="search-container__search"
-        @click="isDimming = true"
-        @focus="isDimming = true"
         placeholder="Location"
-        v-model="location"
+        @click="isDimming = true"
         @keyup.enter="sendLocation"
+        @focus="isDimming = true"
       />
       <a
         class="search-container__btn search-container__btn_hover search-container__btn_focus search-container__btn_active"
         aria-label="Search"
         @click="sendLocation"
-      ></a>
+      />
     </div>
   </div>
   <Background />
