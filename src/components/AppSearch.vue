@@ -26,14 +26,16 @@
         @click="sendLocation"
       />
     </div>
+    <Tooltip v-if="error" />
   </div>
   <Background />
 </template>
 
 <script setup>
 import Background from "@/components/AppBackground.vue"
+import Tooltip from "@/components/AppTooltip.vue"
 import { computed, ref } from "vue"
-import { fetchWeather } from "@/modules/fetchWeather.js"
+import { fetchWeather, error } from "@/modules/fetchWeather.js"
 
 const location = ref("")
 const isDimming = ref(false)
@@ -46,6 +48,7 @@ const sendLocation = () => {
   if (locationNormalize.value.length > 1) {
     fetchWeather(locationNormalize.value)
   }
+  location.value = ""
 }
 </script>
 
@@ -67,14 +70,15 @@ const sendLocation = () => {
   grid-template-columns: minmax(100px, auto) 60px
   width: 700px
   height: 60px
+  position: relative
   background-color: #fff
   border-radius: 10px
   box-shadow: 0 3px 6px 0.5px rgba(0, 0, 0, 18%)
   overflow: hidden
   outline: none
   margin: 0 20px
-  transform: translateY(-40px)
-  opacity: 0
+  transform: translateY(0px)
+  opacity: 1
   animation: slide-down .5s linear forwards
 
   @keyframes slide-down
@@ -84,6 +88,25 @@ const sendLocation = () => {
     100%
       transform: translateY(0px)
       opacity: 1
+
+  &_swing
+    animation: swing 1s ease
+    box-shadow: 0 0 1px 2.5px $accent-color
+
+    @keyframes swing
+      15%
+        transform: translateX(10px)
+      30%
+        transform: translateX(-10px)
+      50%
+        transform: translateX(7px)
+      65%
+        transform: translateX(-7px)
+      80%
+        transform: translateX(5px)
+      100%
+        transform: translateX(0)
+
 
   &__search
     padding: 0 10px
