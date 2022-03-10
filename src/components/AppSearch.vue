@@ -6,7 +6,7 @@
   >
     <div
       class="search-container"
-      :class="{ 'search-container_swing': error !== '' }"
+      :class="{ 'search-container_swing': isWarning }"
       @mouseover="isDimming = true"
       @mouseleave="isDimming = false"
     >
@@ -26,7 +26,7 @@
         @click="sendLocation"
       />
     </div>
-    <Tooltip v-if="error" />
+    <Tooltip v-if="isWarning" />
   </div>
   <Background />
 </template>
@@ -35,7 +35,7 @@
 import Background from "@/components/AppBackground.vue"
 import Tooltip from "@/components/AppTooltip.vue"
 import { computed, ref } from "vue"
-import { fetchWeather, error } from "@/modules/fetchWeather.js"
+import { fetchWeather, isWarning } from "@/modules/fetchWeather.js"
 
 const location = ref("")
 const isDimming = ref(false)
