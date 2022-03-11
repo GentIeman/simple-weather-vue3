@@ -21,6 +21,7 @@
         @focus="isDimming = true"
       />
       <a
+        href="#"
         class="search-container__btn search-container__btn_hover search-container__btn_focus search-container__btn_active"
         aria-label="Search"
         @click="sendLocation"
