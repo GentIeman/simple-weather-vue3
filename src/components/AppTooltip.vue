@@ -18,6 +18,7 @@
   opacity: 1
   transform: translateY(0)
   user-select: none
+  z-index: 0
   animation: slide-up .5s linear forwards
 
   @keyframes slide-up

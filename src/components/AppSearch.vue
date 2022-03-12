@@ -80,6 +80,7 @@ const sendLocation = () => {
   margin: 0 20px
   transform: translateY(0px)
   opacity: 1
+  z-index: 1
   animation: slide-down .5s linear forwards
 
   @keyframes slide-down
@@ -127,4 +128,5 @@ const sendLocation = () => {
     &:is(&_hover:hover, &_focus:focus, &_active:active)
       background-color: $accent-color
       background-image: url("../static/icons/search.svg")
+      color: #fff
 </style>
