@@ -1,5 +1,5 @@
 <template>
-  <div
+  <section
     class="search-container-wrap"
     :class="{ 'search-container-wrap_dimming': isDimming === true }"
     @click.self="isDimming = false"
@@ -27,8 +27,8 @@
         @click="sendLocation"
       />
     </div>
-    <Tooltip v-if="isWarning" />
-  </div>
+    <Tooltip v-if="isWarning && isDimming === true" />
+  </section>
   <Background />
 </template>
 
@@ -58,7 +58,9 @@ const sendLocation = () => {
   display: flex
   justify-content: center
   align-items: center
-  position: absolute
+  position: fixed
+  top: 0
+  left: 0
   width: 100%
   min-height: 100%
   transition: background-color .5s ease
