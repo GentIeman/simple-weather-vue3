@@ -2,6 +2,9 @@ import { referenceError } from "./referenceError"
 import { ref } from "vue"
 
 let isWarning = ref(false)
+let isLoadedData = ref(false)
+let weather = ref(null)
+
 const fetchWeather = async (city) => {
   try {
     let res = await fetch(
@@ -18,9 +21,10 @@ const fetchWeather = async (city) => {
       }
       referenceError(res.error)
     }
-    return res
+    weather.value = res
+    isLoadedData.value = true
   } catch (err) {
     console.error(err)
   }
 }
-export { isWarning, fetchWeather }
+export { isWarning, fetchWeather, weather, isLoadedData }
