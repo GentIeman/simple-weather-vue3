@@ -2,28 +2,33 @@
   <section v-if="isLoadedData" class="card-container">
     <section class="card">
       <div class="card__main-info">
-        <h2 class="card__location">{{ weather.location.name }}</h2>
+        <h2 class="card__location">{{ currentWeather.location.name }}</h2>
         <div class="card__temp">
           <img
-            :src="weather.current.condition.icon"
+            :src="'https:' + currentWeather.current.condition.icon"
             alt="Weather icon"
-            width="60"
-            height="60"
+            width="64"
+            height="64"
           />
-          {{ roundedDataParams(weather.current.temp_c) }}°
+          {{ roundedDataParams(currentWeather.current.temp_c) }}°
         </div>
         <div class="card__other-info">
-          <p class="card__condition">{{ weather.current.condition.text }}</p>
+          <p class="card__condition">
+            {{ currentWeather.current.condition.text }}
+          </p>
           <p class="card__feels-like">
-            feels like {{ roundedDataParams(weather.current.feelslike_c) }}°
+            feels like
+            {{ roundedDataParams(currentWeather.current.feelslike_c) }}°
           </p>
         </div>
         <ul class="card__list">
           <li class="card__item">
-            {{ roundedDataParams(weather.current.wind_mph) }}m/s
+            {{ roundedDataParams(currentWeather.current.wind_mph) }}m/s
           </li>
-          <li class="card__item">{{ weather.current.humidity }}%</li>
-          <li class="card__item">{{ weather.current.pressure_mb }}hPa</li>
+          <li class="card__item">{{ currentWeather.current.humidity }}%</li>
+          <li class="card__item">
+            {{ currentWeather.current.pressure_mb }}hPa
+          </li>
         </ul>
       </div>
     </section>
@@ -33,7 +38,11 @@
 
 <script setup>
 import Background from "@/components/AppBackground.vue"
-import { weather, fetchWeather, isLoadedData } from "../modules/fetchWeather.js"
+import {
+  currentWeather,
+  fetchWeather,
+  isLoadedData
+} from "../modules/fetchWeather.js"
 
 const roundedDataParams = (item) => {
   return Math.round(item)

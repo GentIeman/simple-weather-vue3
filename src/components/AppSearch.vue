@@ -39,7 +39,7 @@ import { computed, ref } from "vue"
 import { fetchWeather, isWarning } from "@/modules/fetchWeather.js"
 
 const location = ref("")
-const isDimming = ref(false)
+let isDimming = ref(false)
 
 const locationNormalize = computed(() => {
   return location.value.trim().toLowerCase()
