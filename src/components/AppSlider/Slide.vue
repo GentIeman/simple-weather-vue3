@@ -1,11 +1,16 @@
 <template>
   <li class="slide">
     <header class="slide__header">
-      <h2 class="slide__day"></h2>
+      <h2 class="slide__day">{{ gettingDay(day.date) }}</h2>
       <time class="slide__date">{{ gettingDate(day.date) }}</time>
     </header>
     <div class="slide__weather">
-      <img :src="day.day.condition.icon" alt="" width="64" height="64" />
+      <img
+        :src="day.day.condition.icon"
+        alt="Weather icon"
+        width="64"
+        height="64"
+      />
       <p class="slide__temp">{{ roundingWeatherParams(day.day.maxtemp_c) }}°</p>
     </div>
     <footer class="slide__footer">
@@ -32,6 +37,21 @@ const gettingDate = (item) => {
     month: "short",
     day: "numeric"
   })
+}
+
+const gettingDay = (init) => {
+  let day = ""
+  init = new Date(init)
+  let currentDate = new Date()
+  let tomorrow = new Date(Date.now() + 864e5).getDate()
+
+  day =
+    init.getDate() === currentDate.getDate()
+      ? "Today"
+      : init.getDate() === tomorrow
+      ? "Tomorrow"
+      : init.toLocaleString("en-US", { weekday: "long" })
+  return day
 }
 </script>
 
