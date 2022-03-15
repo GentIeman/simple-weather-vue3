@@ -33,6 +33,7 @@
           </li>
         </ul>
       </div>
+      <Slider />
     </section>
   </section>
   <Background />
@@ -40,6 +41,7 @@
 
 <script setup>
 import Background from "@/components/AppBackground.vue"
+import Slider from "@/components/AppSlider/Slider.vue"
 import {
   currentWeather,
   fetchWeather,
