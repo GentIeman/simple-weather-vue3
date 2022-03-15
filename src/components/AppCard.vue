@@ -73,6 +73,7 @@ fetchWeather("moscow")
   background: linear-gradient(90deg, #EBF4F5, hsla(216, 41%, 79%, 1) 100%)
   border-radius: 10px
   padding: 30px
+  gap: 30px 0
 
   &__main-info
     display: grid
@@ -117,7 +118,9 @@ fetchWeather("moscow")
     @include font-style(normal, 1.2rem, "Sergio UI", #AEAEAE)
 
   &__list
-    display: flex
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
+    gap: 10px 0
     grid-row: 3 / 4
     grid-column: 1 / span 3
     list-style: none
@@ -149,9 +152,4 @@ fetchWeather("moscow")
 
     &:nth-child(3):before
       background-image: url("../static/icons/pressure.svg")
-
-  @media screen and (max-width: 426px)
-    &__list
-      flex-direction: column
-      gap: 10px 0
 </style>
