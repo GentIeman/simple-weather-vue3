@@ -10,7 +10,9 @@
             width="64"
             height="64"
           />
-          {{ roundedDataParams(currentWeather.current.temp_c) }}°
+          <p class="card__temp">
+            {{ roundingWeatherParams(currentWeather.current.temp_c) }}°
+          </p>
         </div>
         <div class="card__other-info">
           <p class="card__condition">
@@ -18,12 +20,12 @@
           </p>
           <p class="card__feels-like">
             feels like
-            {{ roundedDataParams(currentWeather.current.feelslike_c) }}°
+            {{ roundingWeatherParams(currentWeather.current.feelslike_c) }}°
           </p>
         </div>
         <ul class="card__list">
           <li class="card__item">
-            {{ roundedDataParams(currentWeather.current.wind_mph) }}m/s
+            {{ roundingWeatherParams(currentWeather.current.wind_mph) }}m/s
           </li>
           <li class="card__item">{{ currentWeather.current.humidity }}%</li>
           <li class="card__item">
@@ -44,9 +46,8 @@ import {
   isLoadedData
 } from "../modules/fetchWeather.js"
 
-const roundedDataParams = (item) => {
-  return Math.round(item)
-}
+import { roundingWeatherParams } from "@/modules/roundingWeatherParams.js"
+
 fetchWeather("moscow")
 </script>
 
