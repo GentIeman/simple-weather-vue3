@@ -3,12 +3,12 @@
     <section class="card">
       <div class="card__main-info">
         <h2 class="card__location">{{ currentWeather.location.name }}</h2>
-        <div class="card__temp">
+        <div class="card__current-weather">
           <img
             :src="'https:' + currentWeather.current.condition.icon"
             alt="Weather icon"
-            width="64"
-            height="64"
+            width="55"
+            height="55"
           />
           <p class="card__temp">
             {{ roundingWeatherParams(currentWeather.current.temp_c) }}°
@@ -46,7 +46,7 @@ import {
   currentWeather,
   fetchWeather,
   isLoadedData
-} from "../modules/fetchWeather.js"
+} from "@/modules/fetchWeather.js"
 
 import { roundingWeatherParams } from "@/modules/roundingWeatherParams.js"
 
@@ -68,7 +68,7 @@ fetchWeather("moscow")
   display: grid
   grid-template-rows: repeat(2, 1fr)
   width: 1200px
-  height: 588px
+  min-height: 588px
   margin: 0 30px
   background: linear-gradient(90deg, #EBF4F5, hsla(216, 41%, 79%, 1) 100%)
   border-radius: 10px
@@ -90,12 +90,15 @@ fetchWeather("moscow")
     grid-column: 1 / span 2
     @include font-style(bold, 2rem, "Sergio UI", $accent-color)
 
-  &__temp
+  &__current-weather
     display: flex
     justify-content: center
+    align-items: center
     gap: 0 5px
     grid-row: 2 / 3
     padding: 20px 0
+
+  &__temp
     @include font-style(bold, 3rem, "Sergio UI", #333)
 
   &__other-info
@@ -108,7 +111,7 @@ fetchWeather("moscow")
     gap: 4px 0
 
   &__condition
-    @include font-style(normal, 1.4rem, "Sergio UI", #333)
+    @include font-style(normal, 1.6rem, "Sergio UI", #333)
 
   &__feels-like
     @include font-style(normal, 1.2rem, "Sergio UI", #AEAEAE)
@@ -122,8 +125,8 @@ fetchWeather("moscow")
   &__item
     display: flex
     align-items: center
-    margin-right: 10px
-    @include font-style(normal, 1.2rem, "Sergio UI", #AEAEAE)
+    margin-right: 20px
+    @include font-style(normal, 1rem, "Sergio UI", #AEAEAE)
 
     &:last-child
       margin-right: 0
@@ -131,7 +134,7 @@ fetchWeather("moscow")
     &:before
       content: ''
       position: relative
-      margin-right: 8px
+      margin-right: 10px
       width: 25px
       height: 25px
       background-repeat: no-repeat
