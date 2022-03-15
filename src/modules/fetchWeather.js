@@ -4,6 +4,7 @@ import { ref } from "vue"
 let isWarning = ref(false)
 let isLoadedData = ref(false)
 let currentWeather = ref(null)
+let forecastDays = ref(null)
 
 const fetchWeather = async (city) => {
   try {
@@ -22,9 +23,10 @@ const fetchWeather = async (city) => {
       referenceError(res.error)
     }
     currentWeather.value = res
+    forecastDays.value = res.forecast.forecastday
     isLoadedData.value = true
   } catch (err) {
     console.error(err)
   }
 }
-export { isWarning, fetchWeather, currentWeather, isLoadedData }
+export { isWarning, fetchWeather, currentWeather, isLoadedData, forecastDays }
