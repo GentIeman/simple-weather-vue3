@@ -13,8 +13,8 @@ import { forecastDays } from "@/modules/fetchWeather.js"
 
 <style scoped lang="sass">
 .slider
-  display: flex
   width: 100%
+  min-width: 300px
   height: auto
 
   &__list
@@ -25,8 +25,7 @@ import { forecastDays } from "@/modules/fetchWeather.js"
     position: relative
     gap: 0 30px
     margin: auto
-    min-width: 100%
-    width: 300px
+    width: inherit
     overflow: hidden
     scroll-snap-type: x mandatory
     overflow-x: auto
