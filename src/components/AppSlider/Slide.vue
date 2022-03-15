@@ -65,6 +65,7 @@ const gettingDay = (init) => {
   border-radius: 10px
   word-break: break-word
   gap: 10px 0
+  scroll-snap-align: center
 
   &__day
     @include font-style(bold, 1.3rem, "Sergio UI", $accent-color)

@@ -13,18 +13,21 @@ import { forecastDays } from "@/modules/fetchWeather.js"
 
 <style scoped lang="sass">
 .slider
-  margin-top: 30px
+  display: flex
   width: 100%
   height: auto
 
   &__list
-    display: flex
-    justify-content: space-around
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    justify-items: center
     list-style: none
-
-  &__card
-    width: 231px
-    height: 250px
-    background-color: #fff
-    border-radius: 10px
+    position: relative
+    gap: 0 30px
+    margin: auto
+    min-width: 100%
+    width: 300px
+    overflow: hidden
+    scroll-snap-type: x mandatory
+    overflow-x: auto
 </style>
