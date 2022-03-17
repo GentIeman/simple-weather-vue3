@@ -21,6 +21,12 @@
   z-index: 0
   animation: slide-up .5s linear forwards
 
+
+  @media (prefers-reduced-motion: reduce)
+    &
+      animation: none
+      transform: translateY(-80px)
+
   @keyframes slide-up
     0%
       transform: translateY(0)

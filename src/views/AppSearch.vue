@@ -94,6 +94,10 @@ const sendLocation = () => {
     animation: swing 1s ease
     box-shadow: 0 0 1px 2.5px $accent-color
 
+    @media (prefers-reduced-motion: reduce)
+      &
+        animation: none
+
     @keyframes swing
       15%
         transform: translateX(10px)
@@ -130,7 +134,11 @@ const sendLocation = () => {
 
 
 .fade-down-enter-active
-  animation: fade-down 1s
+  animation: fade-down 1s ease
+
+@media (prefers-reduced-motion: reduce)
+  .fade-down-enter-active
+    animation: none
 
 @keyframes fade-down
   from
