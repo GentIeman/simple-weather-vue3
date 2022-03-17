@@ -29,11 +29,9 @@
     </div>
     <Tooltip v-if="isWarning && isDimming === true" />
   </section>
-  <Background />
 </template>
 
 <script setup>
-import Background from "@/components/AppBackground.vue"
 import Tooltip from "@/components/AppTooltip.vue"
 import { computed, ref } from "vue"
 import { fetchWeather, isWarning } from "@/modules/fetchWeather.js"

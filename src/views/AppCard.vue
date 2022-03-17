@@ -36,11 +36,9 @@
       <Slider />
     </section>
   </section>
-  <Background />
 </template>
 
 <script setup>
-import Background from "@/components/AppBackground.vue"
 import Slider from "@/components/AppSlider/Slider.vue"
 import {
   currentWeather,
