@@ -42,13 +42,31 @@
 import Slider from "@/components/AppSlider/Slider.vue"
 import {
   currentWeather,
-  fetchWeather,
-  isLoadedData
+  isLoadedData,
+  fetchWeather
 } from "@/modules/fetchWeather.js"
 
 import { roundingWeatherParams } from "@/modules/roundingWeatherParams.js"
+import { useRouter } from "vue-router"
 
-fetchWeather("moscow")
+const router = useRouter()
+
+const props = defineProps({
+  location: {
+    type: String,
+    required: true
+  }
+})
+
+const redirectHome = async () => {
+  if (!(await fetchWeather(props.location))) {
+    await router.push({
+      name: "search",
+      params: { isWarning: "true" }
+    })
+  }
+}
+redirectHome()
 </script>
 
 <style scoped lang="sass">

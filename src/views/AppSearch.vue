@@ -39,7 +39,10 @@
 <script setup>
 import Tooltip from "@/components/AppTooltip.vue"
 import { computed, ref } from "vue"
-import { fetchWeather, isWarning } from "@/modules/fetchWeather.js"
+import { isWarning } from "@/modules/fetchWeather.js"
+import { useRouter } from "vue-router"
+
+const router = useRouter()
 
 const location = ref("")
 let isDimming = ref(false)
@@ -50,7 +53,7 @@ const locationNormalize = computed(() => {
 
 const sendLocation = () => {
   if (locationNormalize.value.length > 1) {
-    fetchWeather(locationNormalize.value)
+    router.push(`/location/${locationNormalize.value}`)
   }
   location.value = ""
 }
