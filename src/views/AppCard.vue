@@ -25,32 +25,50 @@
         </div>
         <ul class="card__list">
           <li class="card__item">
-            {{ roundingWeatherParams(currentWeather.current.wind_mph) }}m/s
+            {{ (currentWeather.current.wind_kph * 0.27).toFixed(2) }}m/s
           </li>
           <li class="card__item">{{ currentWeather.current.humidity }}%</li>
           <li class="card__item">
-            {{ currentWeather.current.pressure_mb }}hPa
+            {{
+              roundingWeatherParams(currentWeather.current.pressure_mb * 0.75)
+            }}mmHg
           </li>
         </ul>
       </div>
       <Slider />
     </section>
   </section>
-  <Background />
 </template>
 
 <script setup>
-import Background from "@/components/AppBackground.vue"
 import Slider from "@/components/AppSlider/Slider.vue"
 import {
   currentWeather,
-  fetchWeather,
-  isLoadedData
+  isLoadedData,
+  fetchWeather
 } from "@/modules/fetchWeather.js"
 
 import { roundingWeatherParams } from "@/modules/roundingWeatherParams.js"
+import { useRouter } from "vue-router"
 
-fetchWeather("moscow")
+const router = useRouter()
+
+const props = defineProps({
+  location: {
+    type: String,
+    required: true
+  }
+})
+
+const redirectHome = async () => {
+  if (!(await fetchWeather(props.location))) {
+    await router.push({
+      name: "search",
+      params: { isWarning: "true" }
+    })
+  }
+}
+redirectHome()
 </script>
 
 <style scoped lang="sass">

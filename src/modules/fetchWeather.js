@@ -1,4 +1,3 @@
-import { referenceError } from "./referenceError"
 import { ref } from "vue"
 
 let isWarning = ref(false)
@@ -20,7 +19,8 @@ const fetchWeather = async (city) => {
       if (res.error.code === 1006) {
         isWarning.value = true
       }
-      referenceError(res.error)
+    } else {
+      isWarning.value = false
     }
     currentWeather.value = res
     forecastDays.value = res.forecast.forecastday
@@ -28,5 +28,6 @@ const fetchWeather = async (city) => {
   } catch (err) {
     console.error(err)
   }
+  return !isWarning.value
 }
 export { isWarning, fetchWeather, currentWeather, isLoadedData, forecastDays }

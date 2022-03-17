@@ -1,9 +1,10 @@
 <script setup>
-import Search from "@/components/AppSearch.vue"
+import Background from "@/components/AppBackground.vue"
 </script>
 
 <template>
-  <Search />
+  <router-view />
+  <Background />
 </template>
 
 <style lang="sass">
