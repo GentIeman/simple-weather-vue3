@@ -25,11 +25,13 @@
         </div>
         <ul class="card__list">
           <li class="card__item">
-            {{ roundingWeatherParams(currentWeather.current.wind_mph) }}m/s
+            {{ (currentWeather.current.wind_kph * 0.27).toFixed(2) }}m/s
           </li>
           <li class="card__item">{{ currentWeather.current.humidity }}%</li>
           <li class="card__item">
-            {{ currentWeather.current.pressure_mb }}hPa
+            {{
+              roundingWeatherParams(currentWeather.current.pressure_mb * 0.75)
+            }}mmHg
           </li>
         </ul>
       </div>
