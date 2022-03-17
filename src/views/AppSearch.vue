@@ -4,29 +4,34 @@
     :class="{ 'search-container-wrap_dimming': isDimming === true }"
     @click.self="isDimming = false"
   >
-    <div
-      class="search-container"
-      :class="{ 'search-container_swing': isWarning }"
-      @mouseover="isDimming = true"
-      @mouseleave="isDimming = false"
+    <transition
+      name="fade-down"
+      appear
+      appear-active-class="fade-down-enter-active"
     >
-      <input
-        v-model="location"
-        tabindex="0"
-        type="search"
-        class="search-container__search"
-        placeholder="Location"
-        @click="isDimming = true"
-        @keyup.enter="sendLocation"
-        @focus="isDimming = true"
-      />
-      <a
-        href="#"
-        class="search-container__btn search-container__btn_hover search-container__btn_focus search-container__btn_active"
-        aria-label="Search"
-        @click="sendLocation"
-      />
-    </div>
+      <div
+        class="search-container"
+        :class="{ 'search-container_swing': isWarning === true }"
+        @mouseover="isDimming = true"
+        @mouseleave="isDimming = false"
+      >
+        <input
+          v-model="location"
+          tabindex="0"
+          type="search"
+          class="search-container__search"
+          placeholder="Location"
+          @keyup.enter="sendLocation"
+          @focus="isDimming = true"
+        />
+        <a
+          href="#"
+          class="search-container__btn search-container__btn_hover search-container__btn_focus search-container__btn_active"
+          aria-label="Search"
+          @click="sendLocation"
+        ></a>
+      </div>
+    </transition>
     <Tooltip v-if="isWarning && isDimming === true" />
   </section>
 </template>
@@ -78,18 +83,9 @@ const sendLocation = () => {
   overflow: hidden
   outline: none
   margin: 0 20px
-  transform: translateY(0px)
+  transform: translateY(0)
   opacity: 1
   z-index: 1
-  animation: slide-down .5s linear forwards
-
-  @keyframes slide-down
-    0%
-      transform: translateY(-40px)
-      opacity: 0
-    100%
-      transform: translateY(0px)
-      opacity: 1
 
   &_swing
     animation: swing 1s ease
@@ -108,7 +104,6 @@ const sendLocation = () => {
         transform: translateX(5px)
       100%
         transform: translateX(0)
-
 
   &__search
     padding: 0 10px
@@ -129,4 +124,17 @@ const sendLocation = () => {
       background-color: $accent-color
       background-image: url("../static/icons/search.svg")
       color: #fff
+
+
+.fade-down-enter-active
+  animation: fade-down 1s
+
+@keyframes fade-down
+  from
+    opacity: 0
+    transform: translateY(-40px)
+
+  to
+    opacity: 1
+    transform: translateY(0)
 </style>
