@@ -119,13 +119,16 @@ const sendLocation = () => {
     outline: none
     caret-color: $accent-color
 
+    /* for Safari */
+    background-color: #fff
+
   &__btn
     border-radius: 10px
     border: none
     outline: none
     background: no-repeat center/50% url("../static/icons/search-accent-color.svg")
     cursor: pointer
-    transition: all .5s linear
+    transition: all .5s ease
 
     &:is(&_hover:hover, &_focus:focus, &_active:active)
       background-color: $accent-color
