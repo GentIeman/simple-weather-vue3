@@ -29,4 +29,20 @@ import { forecastDays } from "@/modules/fetchWeather.js"
     overflow: hidden
     scroll-snap-type: x mandatory
     overflow-x: auto
+
+    /* for Chrome */
+
+    &::-webkit-scrollbar
+      width: 4px
+      height: 4px
+      border-radius: 3px
+
+    &::-webkit-scrollbar-thumb
+      height: 30px
+      background-color: $accent-color
+      border-radius: 3px
+
+    /* for Firefox */
+    scrollbar-color: $accent-color transparent
+    scrollbar-width: thin
 </style>
