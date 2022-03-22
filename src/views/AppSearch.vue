@@ -145,7 +145,7 @@ const sendLocation = () => {
 
 @keyframes fade-down
   from
-    opacity: 0
+    opacity: 0.5
     transform: translateY(-40px)
 
   to
