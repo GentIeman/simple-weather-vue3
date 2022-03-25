@@ -78,7 +78,7 @@ redirectHome()
   align-items: center
   width: 100%
   min-height: 100%
-  position: fixed
+  position: absolute
   top: 0
   left: 0
 
@@ -87,7 +87,7 @@ redirectHome()
   grid-template-rows: repeat(2, 1fr)
   width: 1200px
   min-height: 588px
-  margin: 0 30px
+  margin: 30px
   background: linear-gradient(90deg, #EBF4F5, hsla(216, 41%, 79%, 1) 100%)
   border-radius: 10px
   padding: 30px
