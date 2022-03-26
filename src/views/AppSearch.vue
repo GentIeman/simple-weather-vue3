@@ -94,6 +94,10 @@ const sendLocation = () => {
     animation: swing 1s ease
     box-shadow: 0 0 1px 2.5px $accent-color
 
+    @media (prefers-reduced-motion: reduce)
+      &
+        animation: none
+
     @keyframes swing
       15%
         transform: translateX(10px)
@@ -115,13 +119,16 @@ const sendLocation = () => {
     outline: none
     caret-color: $accent-color
 
+    /* for Safari */
+    background-color: #fff
+
   &__btn
     border-radius: 10px
     border: none
     outline: none
     background: no-repeat center/50% url("../static/icons/search-accent-color.svg")
     cursor: pointer
-    transition: all .5s linear
+    transition: all .5s ease
 
     &:is(&_hover:hover, &_focus:focus, &_active:active)
       background-color: $accent-color
@@ -130,11 +137,15 @@ const sendLocation = () => {
 
 
 .fade-down-enter-active
-  animation: fade-down 1s
+  animation: fade-down 1s ease
+
+@media (prefers-reduced-motion: reduce)
+  .fade-down-enter-active
+    animation: none
 
 @keyframes fade-down
   from
-    opacity: 0
+    opacity: 0.5
     transform: translateY(-40px)
 
   to
