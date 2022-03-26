@@ -1,35 +1,38 @@
-# simple-weather-vue3
+# Simple weather vue3 🌦️
 
-This template should help get you started developing with Vue 3 in Vite.
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Vue 3.x](https://img.shields.io/badge/vue-3.x-brightgreen.svg?style=flat-square)](https://vuejs.org)
+[![Node](https://img.shields.io/badge/node-16.x-brightgreen.svg?style=flat-square)](https://www.npmjs.com/)
+[![Vite](https://img.shields.io/badge/vite-2.8.x-brightgreen.svg?style=flat-square)](https://vitejs.dev/)
 
-## Recommended IDE Setup
+> A simple weather service written in Vue 3 + composition API
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+- [Demo](#demo)
+- [Install](#install)
+- [Stack](#stack)
+- [License](#license)
 
-## Customize configuration
+## Demo
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+To view a demo online: [Simple weather](https://simple-weather-vue3.netlify.app/)
 
-## Project Setup
+## Install
 
-```sh
-npm install
-```
+To view demo examples locally clone the repo and run ``npm install && npm run dev``
 
-### Compile and Hot-Reload for Development
+## Stack
 
-```sh
-npm run dev
-```
+### Frontend 🎨
 
-### Compile and Minify for Production
+- Build tool: [Vite](https://vitejs.dev/)
+- Framework: [Vue 3](https://vuejs.or🎨🎨g/) (Composition API)
+- CSS Preprocessor: [Sass](https://sass-lang.com/)
 
-```sh
-npm run build
-```
+### Backend ⚒️
 
-### Lint with [ESLint](https://eslint.org/)
+- Deploy: [Netlify](https://www.netlify.com/)
+- API: [Free Weather API](https://www.weatherapi.com/)
 
-```sh
-npm run lint
-```
+## License
+
+MIT
