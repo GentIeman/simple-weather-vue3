@@ -16,7 +16,7 @@
         </div>
         <div class="card__other-info">
           <p class="card__condition">
-            {{ currentWeather.current.condition.text }} Showers
+            {{ currentWeather.current.condition.text }}
           </p>
           <p class="card__feels-like">
             feels like
