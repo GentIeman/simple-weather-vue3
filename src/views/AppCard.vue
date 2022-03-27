@@ -76,11 +76,11 @@ redirectHome()
   display: flex
   justify-content: center
   align-items: center
-  width: 100%
-  min-height: 100%
   position: absolute
   top: 0
   left: 0
+  width: 100%
+  min-height: 100%
 
 .card
   display: grid
@@ -130,7 +130,12 @@ redirectHome()
     gap: 4px 0
 
   &__condition
+    width: max-content
     @include font-style(normal, 1.6rem, "Sergio UI", #333)
+
+    @media screen and (max-width: 465px)
+      &
+        width: 150px
 
   &__feels-like
     @include font-style(normal, 1.2rem, "Sergio UI", #AEAEAE)
