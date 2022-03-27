@@ -85,7 +85,7 @@ redirectHome()
 .card
   display: grid
   grid-template-rows: repeat(2, 1fr)
-  width: 1200px
+  width: 1000px
   min-height: 588px
   margin: 30px
   background: linear-gradient(90deg, #EBF4F5, hsla(216, 41%, 79%, 1) 100%)
