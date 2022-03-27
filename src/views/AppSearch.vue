@@ -69,10 +69,10 @@ const sendLocation = () => {
   left: 0
   width: 100%
   min-height: 100%
-  transition: background-color .5s ease
+  transition: background-color .3s linear
 
   &_dimming
-    background-color: rgba(0, 0, 0, 0.5)
+    background: rgba(0, 0, 0, 0.5)
 
 .search-container
   display: grid
