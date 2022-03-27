@@ -31,7 +31,7 @@
           <li class="card__item">
             {{
               roundingWeatherParams(currentWeather.current.pressure_mb * 0.75)
-            }}mmHg
+            }} mmHg
           </li>
         </ul>
       </div>
@@ -140,13 +140,12 @@ redirectHome()
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))
     gap: 10px 0
     grid-row: 3 / 4
-    grid-column: 1 / span 3
+    grid-column: 1 / 2
     list-style: none
 
   &__item
     display: flex
     align-items: center
-    margin-right: 20px
     @include font-style(normal, 1rem, "Sergio UI", #AEAEAE)
 
     &:last-child
