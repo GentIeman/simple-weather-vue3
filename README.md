@@ -14,7 +14,7 @@
 
 ## Demo
 
-To view a demo online: [Simple weather](https://simple-weather-vue3.netlify.app/)
+To view a demo online: [Simple weather](https://weather-vue3.netlify.app/)
 
 ## Install
 
